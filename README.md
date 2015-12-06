@@ -8,7 +8,7 @@ Lerp implements a `Lerpable` protocol on `Float`, `Double`, and `CGFloat` - most
 
 ✓ Linear interpolation
 
-```objc
+```swift
 
 lerp(0.5, min: 30, max: 40)
 // 35.0
@@ -17,7 +17,7 @@ lerp(0.5, min: 30, max: 40)
 
 ✓ Inverse linear interpolation
 
-```objc
+```swift
 
 ilerp(35, min: 30, max: 40)
 // 0.5

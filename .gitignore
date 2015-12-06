@@ -1,0 +1,6 @@
+/*/build
+xcuserdata
+.xcodeproj/ !*.xcodeproj/project.pbxproj
+.DS_Store
+Pods
+*.xcworkspace

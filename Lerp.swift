@@ -8,7 +8,14 @@
 
 import Foundation
 
-// MARK: - Linear interpolation
+// MARK: Lerpable protocol
+
+public protocol Lerpable {
+    func lerp(min: Self, max: Self) -> Self
+    func ilerp(min: Self, max: Self) -> Self
+}
+
+// MARK: Lerpable global functions
 
 /**
 Calculates the linear interpolation between a minimum and a maximum value.
@@ -20,25 +27,9 @@ Calculates the linear interpolation between a minimum and a maximum value.
 - returns: The weighted average. Typically in the range `min...max` but other values are supported.
 */
 
-func lerp(weighting: Double, min: Double, max: Double) -> Double {
-    return min + (weighting * (max - min))
+public func lerp<T: Lerpable>(weighting: T, min: T, max: T) -> T {
+    return weighting.lerp(min, max: max)
 }
-
-/**
-Calculates the linear interpolation between a minimum and a maximum value. Identical to `lerp()`.
-
-- parameter weighting: The input weighting. Typically in the range `0...1` but other values are supported.
-- parameter min: The minimum value.
-- parameter max: The maximum value.
-
-- returns: The weighted average. Typically in the range `min...max` but other values are supported.
-*/
-
-func lerpf(weighting: Float, min: Float, max: Float) -> Float {
-    return min + (weighting * (max - min))
-}
-
-// MARK: - Inverse linear interpolation
 
 /**
 Calculates the inverse linear interpolation between a minimum and a maximum value.
@@ -50,20 +41,50 @@ Calculates the inverse linear interpolation between a minimum and a maximum valu
 - returns: The weighting of *value* between *min* and *max*. Typically in the range `0...1` but other values are supported.
 */
 
-func ilerp(value: Double, min: Double, max: Double) -> Double {
-    return (value - min) / (max - min)
+public func ilerp<T: Lerpable>(value: T, min: T, max: T) -> T {
+    return value.ilerp(min, max: max)
 }
 
-/**
-Calculates the inverse linear interpolation between a minimum and a maximum value. Identical to `ilerp()`.
+// MARK: Lerpable implementations
 
-- parameter value: The input value. Typically in the range `min...max` but other values are supported.
-- parameter min: The minimum value.
-- parameter max: The maximum value.
+extension Double: Lerpable {
+    
+    /// Linear interpolation
+    public func lerp(min: Double, max: Double) -> Double {
+        return min + (self * (max - min))
+    }
+    
+    /// Inverse linear interpolation
+    public func ilerp(min: Double, max: Double) -> Double {
+        return (self - min) / (max - min)
+    }
+    
+}
 
-- returns: The weighting of *value* between *min* and *max*. Typically in the range `0...1` but other values are supported.
-*/
+extension Float: Lerpable {
+    
+    /// Linear interpolation
+    public func lerp(min: Float, max: Float) -> Float {
+        return min + (self * (max - min))
+    }
+    
+    /// Inverse linear interpolation
+    public func ilerp(min: Float, max: Float) -> Float {
+        return (self - min) / (max - min)
+    }
+    
+}
 
-func ilerpf(value: Float, min: Float, max: Float) -> Float {
-    return (value - min) / (max - min)
+extension CGFloat: Lerpable {
+    
+    /// Linear interpolation
+    public func lerp(min: CGFloat, max: CGFloat) -> CGFloat {
+        return min + (self * (max - min))
+    }
+    
+    /// Inverse linear interpolation
+    public func ilerp(min: CGFloat, max: CGFloat) -> CGFloat {
+        return (self - min) / (max - min)
+    }
+    
 }

@@ -9,7 +9,7 @@ I got sick of copying and pasting these functions into every project, so I made 
 ```objc
 
 lerp(0.5, min: 30, max: 40)
-// 35
+// 35.0
 
 ```
 

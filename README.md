@@ -6,12 +6,18 @@ I got sick of copying and pasting these functions into every project, so I made 
 
 Lerp implements a `Lerpable` protocol on `Float`, `Double`, and `CGFloat` - mostly cribbed from [this Stack Overflow post](http://stackoverflow.com/questions/29930729/swift-protocol-similar-to-equatable).
 
+### 0.1.2 Update
+
+Added `Clampable` protocol and `clamp()` function.
+
+### Examples
+
 ✓ Linear interpolation
 
 ```swift
 
 lerp(0.5, min: 30, max: 40)
-// 35.0
+// 35
 
 ```
 
@@ -21,5 +27,20 @@ lerp(0.5, min: 30, max: 40)
 
 ilerp(35, min: 30, max: 40)
 // 0.5
+
+```
+
+✓ Clamping
+
+```swift
+
+clamp(35, min: 30, max: 40)
+// 35
+
+clamp(25, min: 30, max: 40)
+// 20
+
+clamp(45, min: 30, max: 40)
+// 40
 
 ```

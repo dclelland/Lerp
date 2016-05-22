@@ -8,6 +8,18 @@ Lerp implements a `Lerpable` protocol on `Float`, `Double`, `CGFloat`, and `CGPo
 
 ### Versions
 
+#### 1.2.0
+
+Added `CGRect` helpers
+
+#### 1.1.0
+
+Added `CGPoint` support + helpers
+
+#### 1.0.0
+
+Removed `clamp` edge case where `max` was greater than `min`
+
 #### 0.2.0
 
 Added external parameter names for aesthetics

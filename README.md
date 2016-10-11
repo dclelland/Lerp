@@ -6,28 +6,6 @@ I got sick of copying and pasting these functions into every project, so I made 
 
 Lerp implements a `Lerpable` protocol on `Float`, `Double`, `CGFloat`, and `CGPoint` - mostly cribbed from [this Stack Overflow post](http://stackoverflow.com/questions/29930729/swift-protocol-similar-to-equatable).
 
-### Versions
-
-#### 1.2.0
-
-Added `CGRect` helpers
-
-#### 1.1.0
-
-Added `CGPoint` support + helpers
-
-#### 1.0.0
-
-Removed `clamp` edge case where `max` was greater than `min`
-
-#### 0.2.0
-
-Added external parameter names for aesthetics
-
-#### 0.1.2
-
-Added `Clampable` protocol and `clamp()` function.
-
 ### Examples
 
 ✓ Linear interpolation

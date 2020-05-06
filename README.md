@@ -34,7 +34,7 @@ clamp(35, min: 30, max: 40)
 // 35
 
 clamp(25, min: 30, max: 40)
-// 20
+// 30
 
 clamp(45, min: 30, max: 40)
 // 40
